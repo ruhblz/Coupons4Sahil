@@ -1,0 +1,372 @@
+:root {
+  --page-bg: #f4efee;
+  --ticket-pink: #f2d7dc;
+  --ticket-red: #d52f45;
+  --ticket-red-deep: #b9253c;
+  --ticket-border: #d62b40;
+  --ink: #d3324f;
+  --muted: #5f4f52;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 8px 12px;
+  background: transparent;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.brand-copy {
+  line-height: 1.1;
+}
+
+.brand-top {
+  display: block;
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brand-copy h1 {
+  margin: 2px 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.header-center {
+  justify-self: center;
+  font-size: clamp(1.1rem, 1vw + 0.8rem, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.offers {
+  padding: 10px 0 40px;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 10px 0 0;
+}
+
+.ticket {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-height: 152px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 4px solid var(--ticket-border);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+.ticket-usage {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+  z-index: 3;
+}
+
+.usage-label {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.usage-count {
+  min-width: 18px;
+  text-align: center;
+  font-size: 0.78rem;
+}
+
+.usage-button {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 38px;
+  height: 38px;
+  transform: translateY(-50%);
+  background: var(--page-bg);
+  border: 4px solid var(--ticket-border);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ticket::before {
+  left: -22px;
+}
+
+.ticket::after {
+  right: -22px;
+}
+
+.ticket--pink {
+  background: var(--ticket-pink);
+  color: var(--ticket-red-deep);
+}
+
+.ticket--red {
+  background: var(--ticket-red);
+  color: var(--white);
+}
+
+.ticket-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  min-width: 50px;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  line-height: 1;
+  z-index: 1;
+}
+
+.ticket-side--right {
+  margin-left: auto;
+}
+
+.ticket-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-center h4 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.ticket-center p {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.ticket--pink .ticket-center p {
+  color: var(--ticket-red-deep);
+}
+
+.ticket--red .ticket-center p {
+  color: var(--white);
+}
+
+.site-footer {
+  padding: 6px 8px 76px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.mobile-quick-actions {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(17, 17, 17, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  z-index: 30;
+}
+
+.mobile-quick-actions a {
+  flex: 1;
+  text-align: center;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 10px;
+}
+
+.mobile-quick-actions .quick-cta {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .brand,
+  .main-nav {
+    justify-self: center;
+  }
+
+  .header-center {
+    order: -1;
+  }
+
+  .ticket-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 78px;
+  }
+
+  .page-shell {
+    width: min(100%, 480px);
+    margin: 0 auto;
+  }
+
+  .site-header,
+  .offers,
+  .site-footer {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 12px 18px;
+    font-size: 0.85rem;
+  }
+
+  .ticket-grid {
+    gap: 16px;
+  }
+
+  .ticket {
+    min-height: 132px;
+  }
+
+  .ticket-side {
+    width: 42px;
+    min-width: 42px;
+    font-size: 0.72rem;
+  }
+
+  .ticket-center h4 {
+    font-size: 1.15rem;
+  }
+}
